@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
+
+body {
+  background-color: #fff;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.form-box {
+  width: 360px;
+  padding: 40px;
+  border: 1px solid #dadce0;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(60, 64, 67, 0.3);
+}
+
+.google-logo {
+  display: block;
+  margin: 0 auto 30px;
+  width: 92px;
+  height: auto;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+.subtitle {
+  font-size: 16px;
+  color: #202124;
+  margin-bottom: 24px;
+}
+
+.input-field {
+  width: 100%;
+  padding: 14px;
+  border: 1px solid #dadce0;
+  border-radius: 4px;
+  font-size: 16px;
+  margin-bottom: 12px;
+}
+
+.input-field:focus {
+  border: 2px solid #1a73e8;
+  outline: none;
+}
+
+.form-footer {
+  margin-bottom: 24px;
+}
+
+.link {
+  color: #1a73e8;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.info-text {
+  font-size: 12px;
+  color: #5f6368;
+  margin-bottom: 32px;
+}
+
+.bottom-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.create-account {
+  font-size: 14px;
+}
+
+.next-btn {
+  background-color: #1a73e8;
+  color: white;
+  border: none;
+  padding: 10px 24px;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.next-btn:hover {
+  background-color: #1967d2;
+}

